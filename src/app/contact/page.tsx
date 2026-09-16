@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { ContactForm } from "@/components/ContactForm";
+import Link from "next/link";
+import { Arrow } from "@/components/Arrow";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Start a project",
-  description: "Tell AasanIt what you want to build. Web, mobile, cloud and digital product engineering.",
+  description: "Book a Discovery Call with AasanIt, or write to us directly.",
 };
 
 export default function ContactPage() {
@@ -15,9 +16,13 @@ export default function ContactPage() {
           <p className="meta mb-6">Contact</p>
           <h1 className="display headline max-w-[10ch]">Let&apos;s build it.</h1>
           <p className="mt-8 max-w-md text-[1.05rem] leading-8 text-ink-muted">
-            Share a little context. This form opens your email client — nothing is stored on this site yet.
+            Book a Discovery Call on Google Calendar, or send a note if you already know what you
+            need.
           </p>
-          <ContactForm />
+          <Link href="/book" className="link-arrow mt-12 inline-flex text-accent" data-cursor="talk">
+            Book a Discovery Call
+            <Arrow />
+          </Link>
         </div>
         <aside className="lg:pt-24">
           <p className="meta mb-4">Direct</p>

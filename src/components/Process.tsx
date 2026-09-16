@@ -93,18 +93,18 @@ export function Process() {
       aria-label="From idea to production"
     >
       <div ref={pinRef} className="process-pin">
-        <div className="site-shell relative flex h-full flex-col pt-[calc(var(--nav-h)+1.25rem)] pb-8">
+        <div className="site-shell relative flex flex-col pt-[calc(var(--nav-h)+1.25rem)] pb-16 md:h-full md:pb-8">
           <div className="flex items-end justify-between gap-6">
             <h2 className="display subhead max-w-[10ch]">
               From idea
               <br />
               to production.
             </h2>
-            <p className="meta text-accent-ink/50" aria-live="polite">
+            <p className="meta hidden text-accent-ink/50 md:block" aria-live="polite">
               {steps[active].index} / 04
             </p>
           </div>
-          <span className="relative mt-6 block h-px bg-accent-ink/15">
+          <span className="relative mt-6 hidden h-px bg-accent-ink/15 md:block">
             <span
               ref={progressRef}
               className="absolute inset-y-0 left-0 w-full origin-left scale-x-0 bg-accent-ink"
@@ -113,12 +113,12 @@ export function Process() {
 
           <div
             ref={trackRef}
-            className="process-track mt-10 flex h-full min-h-0 items-stretch"
+            className="process-track mt-10 flex min-h-0 flex-col items-stretch md:h-full md:flex-row"
           >
             {steps.map((step) => (
               <article
                 key={step.index}
-                className="process-panel flex h-full min-h-0 flex-col justify-end border-l border-accent-ink/10 px-2 pr-10 first:border-l-0 md:pr-20"
+                className="process-panel flex min-h-0 flex-col justify-start border-t border-accent-ink/10 py-10 first:border-t-0 md:h-full md:justify-end md:border-l md:border-t-0 md:px-2 md:py-0 md:pr-20 md:first:border-l-0"
               >
                 <p className="font-display text-[clamp(5rem,18vw,12rem)] leading-[0.8] tracking-[-0.07em] text-accent-ink/12">
                   {step.index}

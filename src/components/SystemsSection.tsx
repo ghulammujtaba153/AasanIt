@@ -6,7 +6,7 @@ const nodes = [
   { id: "data", label: "Data", x: 90, y: 58 },
   { id: "cloud", label: "Cloud", x: 70, y: 88 },
   { id: "apis", label: "APIs", x: 28, y: 86 },
-  { id: "ops", label: "Ops", x: 8, y: 52 },
+  { id: "ops", label: "Ops", x: 12, y: 52 },
 ];
 
 export function SystemsSection() {
@@ -40,25 +40,23 @@ export function SystemsSection() {
                 ))}
                 <circle cx="50" cy="50" r="18" stroke="rgba(200,245,66,0.45)" />
               </g>
-              <circle cx="50" cy="50" r="1.6" fill="#c8f542" />
               <text x="50" y="51.2" textAnchor="middle" fill="#c8f542" fontSize="3.2" letterSpacing="0.4">
                 SYSTEM
               </text>
               {nodes.map((node) => (
-                <g key={node.id}>
-                  <circle cx={node.x} cy={node.y} r="1.3" fill="#f4f1ea" />
-                  <text
-                    x={node.x}
-                    y={node.y - 3.4}
-                    textAnchor="middle"
-                    fill="#8d8c84"
-                    fontSize="3"
-                    className="uppercase"
-                    style={{ letterSpacing: "0.35px" }}
-                  >
-                    {node.label}
-                  </text>
-                </g>
+                <text
+                  key={node.id}
+                  x={node.x}
+                  y={node.y}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fill="#8d8c84"
+                  fontSize="3"
+                  className="uppercase"
+                  style={{ letterSpacing: "0.35px" }}
+                >
+                  {node.label}
+                </text>
               ))}
             </svg>
             <ul className="mt-6 grid grid-cols-2 gap-2 md:hidden">

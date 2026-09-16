@@ -1,0 +1,25 @@
+export const booking = {
+  timeZone: "Asia/Karachi",
+  timeZoneLabel: "PKT",
+  durationMinutes: 30,
+  minGapDays: 1,
+  daysAhead: 28,
+  title: "Book a Discovery Call",
+  description: "Choose a date. Google Calendar confirms the meeting and sends the Meet link.",
+  schedulerUrl:
+    process.env.NEXT_PUBLIC_BOOKING_URL ?? "https://calendar.app.google/b9RxTg3xFqGrrq8C8",
+  slots: [
+    "10:00",
+    "10:30",
+    "11:00",
+    "11:30",
+    "12:00",
+    "12:30",
+    "14:00",
+    "14:30",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30",
+  ],
+} as const;

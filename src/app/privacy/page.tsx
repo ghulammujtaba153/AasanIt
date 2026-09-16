@@ -14,12 +14,13 @@ export default function PrivacyPage() {
         <h1 className="display subhead">Privacy</h1>
         <div className="mt-10 space-y-6 text-[1.02rem] leading-8 text-ink-muted">
           <p>
-            This website is a studio presence for {site.name}. It does not currently operate a user
-            account system or a server-side contact database.
+            This website is a studio presence for {site.name}. It does not operate a user account
+            system or a long-term contact database.
           </p>
           <p>
-            If you use the contact form, your message is handed to your own email client and sent to{" "}
-            {site.email}. Replace this page with a full policy before collecting analytics or form data.
+            Discovery Calls are booked only through Google Calendar. Google collects your name,
+            email and selected time, adds the meeting to both calendars, and emails the Google Meet
+            link. This website does not send booking mail itself.
           </p>
         </div>
       </div>

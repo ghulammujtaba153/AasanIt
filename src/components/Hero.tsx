@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Arrow } from "@/components/Arrow";
 import { HeroCanvas } from "@/components/HeroCanvas";
+import { LetsTalkButton } from "@/components/LetsTalkButton";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 gsap.registerPlugin(useGSAP);
@@ -61,10 +62,10 @@ export function Hero() {
               View selected work
               <Arrow />
             </Link>
-            <Link href="/contact" className="link-arrow inline-flex text-ink-muted" data-cursor="talk">
+            <LetsTalkButton className="link-arrow inline-flex text-ink-muted">
               Start a project
               <Arrow />
-            </Link>
+            </LetsTalkButton>
           </div>
         </div>
       </div>

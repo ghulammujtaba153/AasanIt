@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Arrow } from "@/components/Arrow";
+import { LetsTalkButton } from "@/components/LetsTalkButton";
 import { LineReveal } from "@/components/Reveal";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
@@ -39,16 +39,12 @@ export function CTA() {
       <div className="site-shell">
         <p className="meta mb-8">Next</p>
         <LineReveal as="h2" className="display headline" lines={["Have an", "idea?", "Let's build", "it."]} />
-        <Link
-          href="/contact"
-          className="mt-12 inline-flex items-center gap-6 text-accent"
-          data-cursor="talk"
-        >
+        <LetsTalkButton className="mt-12 inline-flex items-center gap-6 text-accent">
           <span className="text-lg">Start a conversation</span>
           <span data-cta-arrow>
             <Arrow className="h-16 w-16 md:h-24 md:w-24" />
           </span>
-        </Link>
+        </LetsTalkButton>
       </div>
     </section>
   );

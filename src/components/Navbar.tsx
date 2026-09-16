@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Arrow } from "@/components/Arrow";
+import { LetsTalkButton } from "@/components/LetsTalkButton";
 import { Logo } from "@/components/Logo";
 import { navLinks, site } from "@/data/site";
 import { cn } from "@/lib/cn";
@@ -60,15 +60,8 @@ export function Navbar() {
             ))}
           </nav>
             <div className="flex items-center justify-end">
-          <Link
-            href="/contact"
-            className="link-arrow hidden text-sm md:inline-flex"
-            data-cursor="talk"
-          >
-            Let&apos;s Talk
-            <Arrow />
-          </Link>
-          <button
+            <LetsTalkButton className="link-arrow hidden text-sm md:inline-flex" />
+            <button
             type="button"
             className="meta text-ink md:hidden"
             aria-expanded={open}
@@ -101,14 +94,13 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
+            <LetsTalkButton
               data-menu-item
-              className="display text-[clamp(2.6rem,12vw,5.2rem)] leading-[0.92] text-accent"
+              className="display text-left text-[clamp(2.6rem,12vw,5.2rem)] leading-[0.92] text-accent"
               onClick={() => setOpen(false)}
             >
               Let&apos;s Talk
-            </Link>
+            </LetsTalkButton>
           </nav>
           <p data-menu-item className="meta pb-6">
             {site.email}

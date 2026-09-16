@@ -74,6 +74,11 @@ textarea {
   outline-offset: 4px;
 }
 
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
 .skip-link {
   position: absolute;
   left: 1rem;
@@ -142,25 +147,21 @@ textarea {
 @media (max-width: 767px) {
   .process-pin {
     height: auto;
-    min-height: 100svh;
     overflow: visible;
   }
 
   .process-track {
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-
-  .process-track::-webkit-scrollbar {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    transform: none !important;
+    overflow: visible;
+    will-change: auto;
   }
 
   .process-panel {
-    flex: 0 0 86%;
-    min-width: 86%;
-    scroll-snap-align: start;
+    flex: none;
+    width: 100%;
+    min-width: 0;
   }
 }
 
@@ -327,6 +328,7 @@ textarea {
   padding: 1.5rem;
   overflow-y: auto;
 }
+
 
 .service-row {
   display: grid;
