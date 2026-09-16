@@ -120,6 +120,45 @@ textarea {
   font-size: clamp(2.2rem, 5.8vw, 5.4rem);
 }
 
+.process-pin {
+  height: 100svh;
+  overflow: hidden;
+}
+
+.process-track {
+  will-change: transform;
+}
+
+.process-panel {
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+@media (max-width: 767px) {
+  .process-pin {
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+  }
+
+  .process-track {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .process-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .process-panel {
+    flex: 0 0 86%;
+    min-width: 86%;
+    scroll-snap-align: start;
+  }
+}
+
 .hairline {
   height: 1px;
   background: var(--line);
@@ -414,6 +453,24 @@ textarea {
     flex-wrap: wrap;
     width: auto;
     row-gap: 0.8rem;
+  }
+
+  .process-pin {
+    height: auto;
+    overflow: visible;
+  }
+
+  .process-track {
+    transform: none !important;
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: visible;
+    will-change: auto;
+  }
+
+  .process-panel {
+    min-width: 0;
+    flex: none;
   }
 
   ::view-transition-old(root),

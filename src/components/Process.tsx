@@ -1,10 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { LineReveal } from "@/components/Reveal";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -33,49 +32,105 @@ const steps = [
 ];
 
 export function Process() {
-  const ref = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef<HTMLSpanElement>(null);
   const reduced = usePrefersReducedMotion();
+  const [active, setActive] = useState(0);
 
   useGSAP(
     () => {
       gsap.registerPlugin(ScrollTrigger);
-      if (!ref.current || reduced) return;
-      const items = ref.current.querySelectorAll("[data-step]");
-      gsap.fromTo(
-        items,
-        { y: 48, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.12,
-          duration: 0.9,
-          ease: "power3.out",
-          scrollTrigger: { trigger: ref.current, start: "top 72%", once: true },
-        },
-      );
+      const pin = pinRef.current;
+      const track = trackRef.current;
+      const progress = progressRef.current;
+      if (!pin || !track || reduced) return;
+
+      const media = gsap.matchMedia();
+      media.add("(min-width: 768px)", () => {
+        const viewport = track.parentElement;
+        if (!viewport) return;
+        const distance = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
+
+        const tween = gsap.to(track, {
+          x: () => -distance(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: pin,
+            start: "top top",
+            end: () => `+=${distance() * 1.2}`,
+            pin: true,
+            scrub: 0.65,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              const index = Math.min(
+                steps.length - 1,
+                Math.round(self.progress * (steps.length - 1)),
+              );
+              setActive(index);
+              if (progress) {
+                gsap.set(progress, { scaleX: self.progress });
+              }
+            },
+          },
+        });
+
+        return () => tween.kill();
+      });
+
+      return () => media.revert();
     },
-    { scope: ref, dependencies: [reduced] },
+    { scope: sectionRef, dependencies: [reduced] },
   );
 
   return (
-    <section ref={ref} className="relative bg-paper py-24 text-accent-ink md:py-32">
-      <div className="site-shell">
-        <LineReveal
-          as="h2"
-          className="display subhead text-accent-ink"
-          lines={["From idea", "to production."]}
-        />
-        <ol className="mt-16 grid gap-10 md:mt-24 md:grid-cols-2 xl:grid-cols-4">
-          {steps.map((step) => (
-            <li key={step.index} data-step className="border-t border-accent-ink/15 pt-6">
-              <p className="font-display text-[clamp(3.5rem,8vw,6.5rem)] leading-none tracking-[-0.06em] text-accent-ink/15">
-                {step.index}
-              </p>
-              <h3 className="mt-4 font-display text-3xl tracking-[-0.04em]">{step.title}</h3>
-              <p className="mt-4 text-[0.98rem] leading-7 text-accent-ink/65">{step.copy}</p>
-            </li>
-          ))}
-        </ol>
+    <section
+      ref={sectionRef}
+      id="process"
+      className="relative bg-paper text-accent-ink"
+      aria-label="From idea to production"
+    >
+      <div ref={pinRef} className="process-pin">
+        <div className="site-shell relative flex h-full flex-col pt-[calc(var(--nav-h)+1.25rem)] pb-8">
+          <div className="flex items-end justify-between gap-6">
+            <h2 className="display subhead max-w-[10ch]">
+              From idea
+              <br />
+              to production.
+            </h2>
+            <p className="meta text-accent-ink/50" aria-live="polite">
+              {steps[active].index} / 04
+            </p>
+          </div>
+          <span className="relative mt-6 block h-px bg-accent-ink/15">
+            <span
+              ref={progressRef}
+              className="absolute inset-y-0 left-0 w-full origin-left scale-x-0 bg-accent-ink"
+            />
+          </span>
+
+          <div
+            ref={trackRef}
+            className="process-track mt-10 flex h-full min-h-0 items-stretch"
+          >
+            {steps.map((step) => (
+              <article
+                key={step.index}
+                className="process-panel flex h-full min-h-0 flex-col justify-end border-l border-accent-ink/10 px-2 pr-10 first:border-l-0 md:pr-20"
+              >
+                <p className="font-display text-[clamp(5rem,18vw,12rem)] leading-[0.8] tracking-[-0.07em] text-accent-ink/12">
+                  {step.index}
+                </p>
+                <h3 className="mt-4 font-display text-[clamp(2.2rem,5vw,4.5rem)] tracking-[-0.05em]">
+                  {step.title}
+                </h3>
+                <p className="mt-5 max-w-md text-[1.05rem] leading-8 text-accent-ink/65">{step.copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
