@@ -59,7 +59,7 @@ export function Process() {
           scrollTrigger: {
             trigger: pin,
             start: "top top",
-            end: () => `+=${distance() * 1.2}`,
+            end: () => `+=${Math.max(viewport.clientWidth, distance()) * 1.35}`,
             pin: true,
             scrub: 0.65,
             anticipatePin: 1,
@@ -111,24 +111,23 @@ export function Process() {
             />
           </span>
 
-          <div
-            ref={trackRef}
-            className="process-track mt-6 flex min-h-0 flex-1 flex-col items-stretch md:flex-row md:overflow-hidden"
-          >
-            {steps.map((step) => (
-              <article
-                key={step.index}
-                className="process-panel flex min-h-0 flex-col justify-start overflow-hidden border-t border-accent-ink/10 py-10 first:border-t-0 md:justify-end md:border-l md:border-t-0 md:px-2 md:py-0 md:pr-20 md:first:border-l-0"
-              >
-                <p className="process-index font-display tracking-[-0.07em] text-accent-ink/12">
-                  {step.index}
-                </p>
-                <h3 className="mt-3 shrink-0 font-display text-[clamp(2rem,4.2vw,3.75rem)] tracking-[-0.05em]">
-                  {step.title}
-                </h3>
-                <p className="mt-4 max-w-md shrink-0 text-[1.05rem] leading-8 text-accent-ink/65">{step.copy}</p>
-              </article>
-            ))}
+          <div className="process-viewport mt-6 min-h-0 flex-1 overflow-x-hidden md:overflow-hidden">
+            <div ref={trackRef} className="process-track flex h-full flex-col md:flex-row">
+              {steps.map((step) => (
+                <article
+                  key={step.index}
+                  className="process-panel flex flex-col justify-start border-t border-accent-ink/10 py-10 first:border-t-0 md:justify-end md:border-l md:border-t-0 md:px-2 md:py-0 md:pr-20 md:first:border-l-0"
+                >
+                  <p className="process-index font-display tracking-[-0.07em] text-accent-ink/12">
+                    {step.index}
+                  </p>
+                  <h3 className="mt-3 font-display text-[clamp(2rem,4.2vw,3.75rem)] tracking-[-0.05em]">
+                    {step.title}
+                  </h3>
+                  <p className="mt-4 max-w-md text-[1.05rem] leading-8 text-accent-ink/65">{step.copy}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -135,19 +135,24 @@ textarea:focus-visible {
   overflow: hidden;
 }
 
+.process-viewport {
+  min-height: 12rem;
+}
+
 .process-track {
   will-change: transform;
-  min-height: 0;
+  height: 100%;
 }
 
 .process-panel {
   flex: 0 0 100%;
+  width: 100%;
   min-width: 100%;
-  min-height: 0;
+  height: 100%;
 }
 
 .process-index {
-  font-size: clamp(3.25rem, min(16vw, 22svh), 8.5rem);
+  font-size: clamp(3.25rem, min(14vw, 18svh), 7.5rem);
   line-height: 0.78;
 }
 
@@ -157,9 +162,15 @@ textarea:focus-visible {
     overflow: visible;
   }
 
+  .process-viewport {
+    overflow: visible;
+    min-height: 0;
+  }
+
   .process-track {
     display: flex;
     flex-direction: column;
+    height: auto;
     transform: none !important;
     overflow: visible;
     will-change: auto;
@@ -169,7 +180,7 @@ textarea:focus-visible {
     flex: none;
     width: 100%;
     min-width: 0;
-    min-height: 0;
+    height: auto;
   }
 
   .process-index {
