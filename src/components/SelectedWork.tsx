@@ -40,7 +40,7 @@ export function SelectedWork() {
                   <Arrow />
                 </span>
               </div>
-              <ProjectVisual image={project.image} alt={project.imageAlt} className="mx-auto w-full max-w-[360px]" />
+              <ProjectVisual image={project.image} alt={project.imageAlt} className="mx-auto w-full max-w-[200px]" />
             </Link>
           </article>
         ))}

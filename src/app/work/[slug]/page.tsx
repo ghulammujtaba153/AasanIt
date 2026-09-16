@@ -48,7 +48,7 @@ export default async function WorkStudyPage({ params }: Props) {
         <ProjectVisual
           image={project.image}
           alt={project.imageAlt}
-          className="w-full max-w-[420px]"
+          className="w-full max-w-[220px]"
         />
       </div>
     </main>

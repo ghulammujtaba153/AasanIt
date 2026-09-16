@@ -38,7 +38,7 @@ export default function WorkPage() {
                 <ProjectVisual
                   image={project.image}
                   alt={project.imageAlt}
-                  className="mx-auto w-full max-w-[280px]"
+                  className="mx-auto w-full max-w-[160px]"
                 />
               </Link>
             </li>

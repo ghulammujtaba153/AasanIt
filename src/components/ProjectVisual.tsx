@@ -11,7 +11,7 @@ export function ProjectVisual({
   className?: string;
 }) {
   return (
-    <div className={cn("project-visual relative aspect-[9/16] w-full max-h-[720px] bg-[#2e6ea8]", className)}>
+    <div className={cn("project-visual relative aspect-[9/16] w-full max-h-[420px] bg-[#2e6ea8]", className)}>
       <Image
         src={image}
         alt={alt}
