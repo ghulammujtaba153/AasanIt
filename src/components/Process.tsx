@@ -93,9 +93,9 @@ export function Process() {
       aria-label="From idea to production"
     >
       <div ref={pinRef} className="process-pin">
-        <div className="site-shell relative flex flex-col pt-[calc(var(--nav-h)+1.25rem)] pb-16 md:h-full md:pb-8">
-          <div className="flex items-end justify-between gap-6">
-            <h2 className="display subhead max-w-[10ch]">
+        <div className="site-shell relative flex h-full min-h-0 flex-col pt-[calc(var(--nav-h)+1rem)] pb-8">
+          <div className="flex shrink-0 items-end justify-between gap-6">
+            <h2 className="display subhead relative z-10 max-w-[10ch]">
               From idea
               <br />
               to production.
@@ -104,7 +104,7 @@ export function Process() {
               {steps[active].index} / 04
             </p>
           </div>
-          <span className="relative mt-6 hidden h-px bg-accent-ink/15 md:block">
+          <span className="relative mt-5 hidden h-px shrink-0 bg-accent-ink/15 md:block">
             <span
               ref={progressRef}
               className="absolute inset-y-0 left-0 w-full origin-left scale-x-0 bg-accent-ink"
@@ -113,20 +113,20 @@ export function Process() {
 
           <div
             ref={trackRef}
-            className="process-track mt-10 flex min-h-0 flex-col items-stretch md:h-full md:flex-row"
+            className="process-track mt-6 flex min-h-0 flex-1 flex-col items-stretch md:flex-row md:overflow-hidden"
           >
             {steps.map((step) => (
               <article
                 key={step.index}
-                className="process-panel flex min-h-0 flex-col justify-start border-t border-accent-ink/10 py-10 first:border-t-0 md:h-full md:justify-end md:border-l md:border-t-0 md:px-2 md:py-0 md:pr-20 md:first:border-l-0"
+                className="process-panel flex min-h-0 flex-col justify-start overflow-hidden border-t border-accent-ink/10 py-10 first:border-t-0 md:justify-end md:border-l md:border-t-0 md:px-2 md:py-0 md:pr-20 md:first:border-l-0"
               >
-                <p className="font-display text-[clamp(5rem,18vw,12rem)] leading-[0.8] tracking-[-0.07em] text-accent-ink/12">
+                <p className="process-index font-display tracking-[-0.07em] text-accent-ink/12">
                   {step.index}
                 </p>
-                <h3 className="mt-4 font-display text-[clamp(2.2rem,5vw,4.5rem)] tracking-[-0.05em]">
+                <h3 className="mt-3 shrink-0 font-display text-[clamp(2rem,4.2vw,3.75rem)] tracking-[-0.05em]">
                   {step.title}
                 </h3>
-                <p className="mt-5 max-w-md text-[1.05rem] leading-8 text-accent-ink/65">{step.copy}</p>
+                <p className="mt-4 max-w-md shrink-0 text-[1.05rem] leading-8 text-accent-ink/65">{step.copy}</p>
               </article>
             ))}
           </div>
