@@ -36,7 +36,12 @@
 
 html {
   background: var(--bg);
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
 }
 
 body {
