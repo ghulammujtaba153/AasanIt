@@ -15,13 +15,13 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "intelligence-layer",
+    slug: "platform-core",
     index: "01",
-    title: "Intelligence Layer",
-    category: "AI",
+    title: "Platform Core",
+    category: "Web",
     description:
-      "Placeholder study — an AI support layer that retrieves knowledge, reasons over tools, and stays inside the product workflow.",
-    technologies: ["AI", "RAG", "LLM", "Next.js", "Python"],
+      "Placeholder study — a digital operations platform that brings work, data and users into one place.",
+    technologies: ["Next.js", "Node", "Postgres", "AWS"],
     layout: "split-right",
     visual: "lattice",
     placeholder: true,

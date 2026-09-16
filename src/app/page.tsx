@@ -1,5 +1,5 @@
 import { About } from "@/components/About";
-import { AISection } from "@/components/AISection";
+import { SystemsSection } from "@/components/SystemsSection";
 import { CTA } from "@/components/CTA";
 import { Differentiators } from "@/components/Differentiators";
 import { Hero } from "@/components/Hero";
@@ -16,7 +16,7 @@ export default function Home() {
       <Intro />
       <Services />
       <SelectedWork />
-      <AISection />
+      <SystemsSection />
       <Technology />
       <Process />
       <Differentiators />

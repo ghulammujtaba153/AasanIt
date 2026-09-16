@@ -41,10 +41,10 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg/80" />
       <div className="site-shell relative z-10">
         <p data-hero-meta className="meta mb-8">
-          Digital product engineering studio
+          Digital solutions studio
         </p>
-        <h1 className="display headline max-w-[18ch] text-ink" aria-label="We build digital products with intelligence built in.">
-          {["We build", "digital products", "with intelligence", "built in."].map((line) => (
+        <h1 className="display headline max-w-[18ch] text-ink" aria-label="We build digital solutions that work in the real world.">
+          {["We build", "digital solutions", "that work in", "the real world."].map((line) => (
             <span key={line} className="block overflow-hidden">
               <span data-hero-line className="block">
                 {line}
@@ -54,7 +54,7 @@ export function Hero() {
         </h1>
         <div className="mt-10 flex max-w-xl flex-col gap-8 md:mt-14 md:flex-row md:items-end md:justify-between">
           <p data-hero-meta className="max-w-sm text-[1.02rem] leading-7 text-ink-muted">
-            AI, web, mobile and cloud engineering for ambitious products.
+            Web, mobile, cloud and product engineering for ambitious digital products.
           </p>
           <div data-hero-meta className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link href="#work" className="link-arrow inline-flex" data-cursor="open">

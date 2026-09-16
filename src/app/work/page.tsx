@@ -6,7 +6,7 @@ import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Selected Work",
-  description: "Placeholder studies of digital products spanning AI, web, mobile and cloud.",
+  description: "Placeholder studies of digital solutions spanning web, mobile and cloud.",
 };
 
 export default function WorkPage() {

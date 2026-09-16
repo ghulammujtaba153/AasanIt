@@ -12,7 +12,7 @@ export function SelectedWork() {
         <LineReveal as="h2" className="display subhead" lines={["Things", "we've built."]} />
         <Reveal className="mt-6 max-w-md">
           <p className="text-ink-muted">
-            Studies of the systems we design. Visuals and names here are placeholders until live case studies are added.
+            Studies of the digital solutions we design. Visuals and names here are placeholders until live case studies are added.
           </p>
         </Reveal>
       </div>

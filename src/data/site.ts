@@ -1,17 +1,30 @@
+export function getSiteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return "http://localhost:3000";
+}
+
 export const site = {
   name: "AasanIt",
-  tagline: "Digital products, engineered for what comes next.",
+  tagline: "Digital solutions, engineered for what comes next.",
   description:
-    "AasanIt is a digital product engineering studio. We design and build AI systems, web platforms, mobile applications, and cloud infrastructure as one.",
+    "AasanIt designs and engineers digital solutions — web platforms, mobile applications, cloud systems and product software that move from idea to production.",
   email: "hello@aasanit.com",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: getSiteUrl(),
   location: "Remote / Global",
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com" },
     { label: "GitHub", href: "https://github.com" },
     { label: "Instagram", href: "https://www.instagram.com" },
   ],
-} as const;
+};
 
 export const navLinks = [
   { label: "Work", href: "/work" },

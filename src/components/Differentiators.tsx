@@ -10,7 +10,7 @@ import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const statements = [
-  "AI from day one.",
+  "Digital from the first decision.",
   "Design that serves the product.",
   "Engineering built for production.",
   "Cloud without the complexity.",

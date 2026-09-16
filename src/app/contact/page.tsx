@@ -4,7 +4,7 @@ import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Start a project",
-  description: "Tell AasanIt what you want to build. AI, web, mobile and cloud engineering.",
+  description: "Tell AasanIt what you want to build. Web, mobile, cloud and digital product engineering.",
 };
 
 export default function ContactPage() {

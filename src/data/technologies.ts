@@ -5,10 +5,6 @@ export type TechGroup = {
 
 export const techGroups: TechGroup[] = [
   {
-    label: "AI / ML",
-    items: ["AI", "LLM", "RAG", "Agents", "Python", "FastAPI"],
-  },
-  {
     label: "Web",
     items: ["Next.js", "React", "TypeScript", "Node", "Tailwind"],
   },
@@ -24,20 +20,23 @@ export const techGroups: TechGroup[] = [
     label: "Backend",
     items: ["Postgres", "MongoDB", "APIs", "Microservices"],
   },
+  {
+    label: "Automation",
+    items: ["Python", "FastAPI", "Integrations", "Workflows"],
+  },
 ];
 
 export const marqueeItems = [
-  "AI",
-  "LLM",
-  "PYTHON",
-  "FASTAPI",
-  "NODE",
   "NEXT.JS",
   "REACT",
+  "NODE",
+  "TYPESCRIPT",
   "REACT NATIVE",
   "POSTGRES",
-  "MONGODB",
   "AWS",
   "DOCKER",
   "KUBERNETES",
+  "PYTHON",
+  "FASTAPI",
+  "MONGODB",
 ];

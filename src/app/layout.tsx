@@ -30,12 +30,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Digital Products, AI & Software Engineering | AasanIt",
+    default: "Digital Solutions & Software Engineering | AasanIt",
     template: "%s | AasanIt",
   },
   description: site.description,
   keywords: [
-    "AI engineering",
+    "digital solutions",
     "web application development",
     "mobile apps",
     "cloud",
@@ -44,18 +44,36 @@ export const metadata: Metadata = {
     "product engineering",
   ],
   authors: [{ name: site.name }],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
-    title: "Digital Products, AI & Software Engineering | AasanIt",
+    title: "Digital Solutions & Software Engineering | AasanIt",
     description: site.description,
     url: site.url,
     siteName: site.name,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "AasanIt — digital solutions studio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Products, AI & Software Engineering | AasanIt",
+    title: "Digital Solutions & Software Engineering | AasanIt",
     description: site.description,
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -73,6 +91,8 @@ const jsonLd = {
   url: site.url,
   email: site.email,
   description: site.description,
+  logo: `${site.url}/icon-512.png`,
+  image: `${site.url}/opengraph-image`,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

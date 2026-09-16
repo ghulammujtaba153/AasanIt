@@ -7,12 +7,12 @@ export function Intro() {
         <LineReveal
           as="h2"
           className="display subhead"
-          lines={["We turn", "complex ideas", "into digital", "products."]}
+          lines={["We turn", "complex ideas", "into digital", "solutions."]}
         />
         <Reveal>
           <p className="max-w-md text-[1.05rem] leading-8 text-ink-muted lg:justify-self-end">
-            We design and engineer web platforms, mobile applications, AI systems and cloud
-            infrastructure that move from concept to production.
+            We design and engineer web platforms, mobile applications, cloud infrastructure and
+            product software that move from concept to production.
           </p>
         </Reveal>
       </div>
