@@ -11,27 +11,18 @@ export function SelectedWork() {
       <div className="site-shell mb-16 md:mb-24">
         <LineReveal as="h2" className="display subhead" lines={["Things", "we've built."]} />
         <Reveal className="mt-6 max-w-md">
-          <p className="text-ink-muted">
-            Studies of the digital solutions we design. Visuals and names here are placeholders until live case studies are added.
-          </p>
+          <p className="text-ink-muted">Selected work. One live digital solution, shown as it exists today.</p>
         </Reveal>
       </div>
       <div className="flex flex-col gap-24 md:gap-32">
         {projects.map((project) => (
-          <article
-            key={project.slug}
-            className={cn(
-              "site-shell group",
-              project.layout === "full" && "max-w-none px-0",
-              project.layout === "asymmetric" && "md:pr-[12%]",
-            )}
-          >
+          <article key={project.slug} className="site-shell group">
             <Link
               href={`/work/${project.slug}`}
               className={cn(
-                "grid gap-8 lg:items-end",
-                project.layout === "split-right" && "lg:grid-cols-[0.8fr_1.2fr]",
-                project.layout === "split-left" && "lg:grid-cols-[1.2fr_0.8fr]",
+                "grid gap-8 lg:items-center",
+                project.layout === "split-right" && "lg:grid-cols-[0.9fr_0.9fr]",
+                project.layout === "split-left" && "lg:grid-cols-[0.9fr_0.9fr]",
                 project.layout === "full" && "site-shell",
                 project.layout === "asymmetric" && "lg:grid-cols-[1fr_0.7fr]",
               )}
@@ -49,13 +40,7 @@ export function SelectedWork() {
                   <Arrow />
                 </span>
               </div>
-              <ProjectVisual
-                kind={project.visual}
-                className={cn(
-                  project.layout === "full" && "aspect-[21/9]",
-                  project.layout === "asymmetric" && "lg:translate-y-8",
-                )}
-              />
+              <ProjectVisual image={project.image} alt={project.imageAlt} className="mx-auto w-full max-w-[360px]" />
             </Link>
           </article>
         ))}
